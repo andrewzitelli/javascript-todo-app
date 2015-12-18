@@ -59,8 +59,10 @@ $(document).ready(function() {
   // Bind to new todo form submission to create new todos.
   $(document).on('submit', '.new-todo', function(event) {
     event.preventDefault();
-
     var text = $('.todo-text').val();
+    $('.todo-text').val('');
+
+    if (text.trim().length !== 0){
 
     var newTodo = {
       id: incrementId(),
@@ -69,8 +71,13 @@ $(document).ready(function() {
     };
 
     todos.push(newTodo);
-
+  }
+  else {
+    alert("Don't leave it blank, my man!");
+  }
     renderTodos();
+
+
   });
 
 });
