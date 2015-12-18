@@ -3,7 +3,7 @@ var todos = [
   {
     id: 1,
     text: 'learn javascript',
-    complete: false
+    complete: true
   },
   {
     id: 2,
@@ -25,8 +25,18 @@ function renderTodos() {
 
   for (var i = 0; i < todos.length; i++) {
     var todo = todos[i];
-    var checked = todo.complete ? 'checked' : ''
-    $('.todos').append("<li class='todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + checked + "/> " + todo.text + "</label></li>");
+    // var fun = todo.complete ? 'checked' : ''
+
+    var fun;
+    if (todo.complete === true) {
+      fun = 'checked';
+      $('.todos').append("<li class='done-todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label></li>");
+    } else {
+      fun = '';
+      $('.todos').append("<li class='todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label></li>");
+    }
+
+
   }
 }
 
@@ -55,6 +65,7 @@ $(document).ready(function() {
 
     renderTodos();
   });
+
 
   // Bind to new todo form submission to create new todos.
   $(document).on('submit', '.new-todo', function(event) {
