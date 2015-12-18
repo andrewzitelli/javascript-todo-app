@@ -30,10 +30,10 @@ function renderTodos() {
     var fun;
     if (todo.complete === true) {
       fun = 'checked';
-      $('.todos').append("<li class='done-todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label></li>");
+      $('.todos').append("<li class='done-todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label><form class='delete-one'><input type='submit' value='remove this'/></form></li>");
     } else {
       fun = '';
-      $('.todos').append("<li class='todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label></li>");
+      $('.todos').append("<li class='todo' data-id=" + todo.id + "><label><input class='toggle-todo' type='checkbox' " + fun + "/> " + todo.text + "</label><form class='delete-one'><input type='submit' value='remove this'/></form></li>");
     }
 
 
